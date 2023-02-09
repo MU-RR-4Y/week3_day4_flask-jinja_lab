@@ -1,0 +1,25 @@
+{% extends'base.html' %}
+
+{% block content%}
+    
+<h1>List of Events</h1>
+{% for event in events %}
+    <ul> 
+        <li>
+            <p>Event Date: {{event.date}}</p> 
+            <p>Event Name: {{event.name}}</p>
+            <p>Number of Guests: {{event.number_of_guests}}</p>
+            <p>Location: {{event.room_location}}</p>
+            <p>Description: {{event.description}}</p>
+            <p>Recurring Event: 
+                {% if event.recurring %}
+                <p>&#9989;</p>
+                {%else%}
+                <p>&#10060;</p>
+                {% endif %}
+            </p>
+        </li>
+    </ul>
+{% endfor %}
+
+{% endblock content%}
